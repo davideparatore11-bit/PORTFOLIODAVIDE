@@ -3,7 +3,8 @@ import { Play, Activity } from 'lucide-react';
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-b from-black via-zinc-950 to-zinc-900 overflow-hidden">
+          <section className="relative min-h-screen min-h-[100dvh] flex items-start md:items-center justify-center bg-gradient-to-b from-black via-zinc-950 to-zinc-900 overflow-hidden pt-safe">
+
           
       {/* Grid Background */}
       <div className="absolute inset-0 opacity-20">
