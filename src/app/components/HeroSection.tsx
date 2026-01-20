@@ -3,18 +3,28 @@ import { Play, Activity } from 'lucide-react';
 
 export function HeroSection() {
   return (
-          <section className="relative min-h-screen min-h-[100dvh] flex items-start md:items-center justify-center bg-gradient-to-b from-black via-zinc-950 to-zinc-900 overflow-hidden pt-safe">
-
-          
+    <section
+      className="
+        relative
+        md:min-h-screen md:min-h-[100dvh]
+        flex items-start md:items-center justify-center
+        bg-gradient-to-b from-black via-zinc-950 to-zinc-900
+        overflow-hidden
+        pt-safe pt-24
+      "
+    >
       {/* Grid Background */}
       <div className="absolute inset-0 opacity-20">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `
-            linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px)
-          `,
-          backgroundSize: '40px 40px'
-        }} />
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `
+              linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+              linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px)
+            `,
+            backgroundSize: '40px 40px',
+          }}
+        />
       </div>
 
       {/* Animated Waveform Visualization */}
@@ -23,21 +33,21 @@ export function HeroSection() {
           {[...Array(100)].map((_, i) => {
             const height = Math.sin(i * 0.2) * 50 + Math.random() * 30;
             const delay = i * 0.01;
-            
+
             return (
               <motion.div
                 key={i}
                 className="w-[4px] bg-gradient-to-t from-emerald-500/50 to-emerald-400/20 rounded-full"
                 initial={{ height: 4 }}
-                animate={{ 
+                animate={{
                   height: [4, height, 4],
-                  opacity: [0.3, 0.8, 0.3]
+                  opacity: [0.3, 0.8, 0.3],
                 }}
                 transition={{
                   duration: 2,
                   delay,
                   repeat: Infinity,
-                  ease: "easeInOut"
+                  ease: 'easeInOut',
                 }}
               />
             );
@@ -55,15 +65,18 @@ export function HeroSection() {
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-zinc-900/80 border border-emerald-500/20 rounded-full mb-8">
             <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse" />
-            <span className="text-xs uppercase tracking-wider text-zinc-400">Available for Projects</span>
+            <span className="text-xs uppercase tracking-wider text-zinc-400">
+              Available for Projects
+            </span>
           </div>
         </motion.div>
 
+        {/* TITOLO – corretto per mobile */}
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-6xl md:text-8xl mb-6 tracking-tight"
+          className="text-4xl sm:text-5xl md:text-8xl mb-6 tracking-tight"
         >
           <span className="text-white uppercase">Davide Paratore</span>
           <span className="text-zinc-600 mx-4">·</span>
@@ -76,28 +89,30 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-xl md:text-2xl text-zinc-400 mb-12 max-w-3xl mx-auto tracking-wide"
+          className="text-lg md:text-2xl text-zinc-400 mb-12 max-w-3xl mx-auto tracking-wide"
         >
           Designing sound systems, music and audio experiences
         </motion.p>
 
-        {/* CTAs */}
-        
-        {/* Technical Specs */}
+        {/* Technical Specs – spazio ridotto su mobile */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 1 }}
-          className="mt-20 grid grid-cols-3 gap-8 max-w-2xl mx-auto"
+          className="mt-12 md:mt-20 grid grid-cols-3 gap-8 max-w-2xl mx-auto"
         >
           {[
             { label: 'Sample Rate', value: '48000 kHz' },
             { label: 'Bit Depth', value: '32-bit' },
-            { label: 'Processing', value: 'Real-time' }
+            { label: 'Processing', value: 'Real-time' },
           ].map((spec, i) => (
             <div key={i} className="text-center">
-              <div className="text-2xl text-emerald-500 mb-1 font-mono">{spec.value}</div>
-              <div className="text-xs uppercase tracking-wider text-zinc-600">{spec.label}</div>
+              <div className="text-2xl text-emerald-500 mb-1 font-mono">
+                {spec.value}
+              </div>
+              <div className="text-xs uppercase tracking-wider text-zinc-600">
+                {spec.label}
+              </div>
             </div>
           ))}
         </motion.div>
